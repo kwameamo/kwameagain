@@ -556,12 +556,10 @@
             width: 100%;
             height: 100%;
             object-fit: cover;
-            filter: brightness(0.8) contrast(1.3) saturate(0.7);
             transition: all var(--transition-speed);
         }
 
         .image-item:hover img {
-            filter: brightness(1.1) contrast(1.5) saturate(1);
             transform: scale(1.05);
         }
         
@@ -618,7 +616,48 @@
             width: 100%;
             height: 100%;
             object-fit: contain;
-            filter: brightness(1) contrast(1.1) saturate(1);
+        }
+
+        .modal-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: var(--bg-dark);
+            border: 2px solid var(--border-bright);
+            color: var(--text-bright);
+            font-size: 24px;
+            padding: 12px 16px;
+            cursor: pointer;
+            font-family: 'VT323', monospace;
+            user-select: none;
+            transition: all var(--transition-speed);
+        }
+
+        .modal-nav:hover {
+            background: var(--text-bright);
+            color: var(--bg-dark);
+            box-shadow: 0 0 15px var(--text-bright);
+        }
+
+        .modal-prev {
+            left: 20px;
+        }
+
+        .modal-next {
+            right: 20px;
+        }
+
+        .modal-counter {
+            position: absolute;
+            top: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: var(--text-bright);
+            font-family: 'Share Tech Mono', monospace;
+            font-size: 12px;
+            background: var(--bg-dark);
+            border: 1px solid var(--border-bright);
+            padding: 6px 12px;
         }
 
         .modal-close {
@@ -693,10 +732,8 @@
         }
         
         .spotify-container iframe {
-            border: 1px solid var(--border-dim);
             width: 100%;
             height: 352px;
-            filter: contrast(1.2) brightness(0.9) hue-rotate(90deg);
         }
         
         /* Marquee as Status Bar */
@@ -747,9 +784,12 @@
         .elfsight-app-1a9bb44e-9330-46de-93b4-269ad102bfa8 {
             background: transparent !important;
             border: none !important;
-            font-family: inherit !important;
-            color: inherit !important;
-            border-radius: inherit !important;
+        }
+
+        /* Hide Elfsight branding */
+        .elfsight-app-1a9bb44e-9330-46de-93b4-269ad102bfa8 .eapps-link,
+        .elfsight-app-1a9bb44e-9330-46de-93b4-269ad102bfa8 .elfsight-badge {
+            display: none !important;
         }
 
         /* Responsive Design */
@@ -886,21 +926,9 @@
                         <span class="section-tag">@KWAMEHASVISION</span>
                     </div>
                     <div class="section-content">
-                        <div class="terminal-feed">
-                            <div class="feed-header">
-                                <span class="bright-text">CONNECTING TO TWITTER.NET...</span>
-                                <span class="cursor"></span>
-                            </div>
-                            <div class="feed-container">
-                                <div class="elfsight-app-1a9bb44e-9330-46de-93b4-269ad102bfa8" 
-                                     data-elfsight-app-lazy
-                                     data-width="100%"
-                                     data-height="300" 
-                                     data-theme="dark" 
-                                     data-chrome="noheader nofooter noborders transparent"
-                                     data-tweet-limit="3">
-                                </div>
-                            </div>
+                        <div class="feed-container">
+                            <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+                            <div class="elfsight-app-1a9bb44e-9330-46de-93b4-269ad102bfa8" data-elfsight-app-lazy></div>
                         </div>
                     </div>
                 </div>
@@ -918,25 +946,25 @@
                                 <span>7 FILES</span>
                             </div>
                             <div class="image-grid">
-                                <div class="image-item" data-filename="KEJETIA-1.JPG" onclick="openImageModal('portfolio/kejetia-1.jpg', 'KEJETIA-1.JPG')">
+                                <div class="image-item" data-filename="KEJETIA-1.JPG" onclick="openImageModal(0)">
                                     <img src="portfolio/kejetia-1.jpg" alt="Kejetia Project 1" loading="lazy">
                                 </div>
-                                <div class="image-item" data-filename="KEJETIA-2.JPG" onclick="openImageModal('portfolio/kejetia-2.jpg', 'KEJETIA-2.JPG')">
+                                <div class="image-item" data-filename="KEJETIA-2.JPG" onclick="openImageModal(1)">
                                     <img src="portfolio/kejetia-2.jpg" alt="Kejetia Project 2" loading="lazy">
                                 </div>
-                                <div class="image-item" data-filename="KEJETIA-4.JPG" onclick="openImageModal('portfolio/kejetia-4.jpg', 'KEJETIA-4.JPG')">
+                                <div class="image-item" data-filename="KEJETIA-4.JPG" onclick="openImageModal(2)">
                                     <img src="portfolio/kejetia-4.jpg" alt="Kejetia Project 4" loading="lazy">
                                 </div>
-                                <div class="image-item" data-filename="NO-LOVE-4.JPG" onclick="openImageModal('portfolio/no-love-4.jpg', 'NO-LOVE-4.JPG')">
+                                <div class="image-item" data-filename="NO-LOVE-4.JPG" onclick="openImageModal(3)">
                                     <img src="portfolio/no-love-4.jpg" alt="No Love Project 4" loading="lazy">
                                 </div>
-                                <div class="image-item" data-filename="NO-LOVE-0.JPG" onclick="openImageModal('portfolio/no-love-0.jpg', 'NO-LOVE-0.JPG')">
+                                <div class="image-item" data-filename="NO-LOVE-0.JPG" onclick="openImageModal(4)">
                                     <img src="portfolio/no-love-0.jpg" alt="No Love Project 0" loading="lazy">
                                 </div>
-                                <div class="image-item" data-filename="NO-LOVE-2.JPG" onclick="openImageModal('portfolio/no-love-2.jpg', 'NO-LOVE-2.JPG')">
+                                <div class="image-item" data-filename="NO-LOVE-2.JPG" onclick="openImageModal(5)">
                                     <img src="portfolio/no-love-2.jpg" alt="No Love Project 2" loading="lazy">
                                 </div>
-                                <div class="image-item" data-filename="NO-LOVE-5.JPG" onclick="openImageModal('portfolio/no-love-5.jpg', 'NO-LOVE-5.JPG')">
+                                <div class="image-item" data-filename="NO-LOVE-5.JPG" onclick="openImageModal(6)">
                                     <img src="portfolio/no-love-5.jpg" alt="No Love Project 5" loading="lazy">
                                 </div>
                             </div>
@@ -1059,22 +1087,41 @@
     <div id="imageModal" class="image-modal" onclick="closeImageModal()">
         <div class="modal-content">
             <span class="modal-close" onclick="closeImageModal()">&times;</span>
+            <div class="modal-nav modal-prev" onclick="event.stopPropagation(); prevImage()">&#8249;</div>
+            <div class="modal-nav modal-next" onclick="event.stopPropagation(); nextImage()">&#8250;</div>
             <img id="modalImage" src="" alt="">
+            <div id="modalCounter" class="modal-counter"></div>
             <div id="modalFilename" class="modal-filename"></div>
         </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/elfsight/1.0.0/elfsight.min.js"></script>
     <script>
+        // Portfolio Images Array
+        const portfolioImages = [
+            { src: 'portfolio/kejetia-1.jpg', filename: 'KEJETIA-1.JPG' },
+            { src: 'portfolio/kejetia-2.jpg', filename: 'KEJETIA-2.JPG' },
+            { src: 'portfolio/kejetia-4.jpg', filename: 'KEJETIA-4.JPG' },
+            { src: 'portfolio/no-love-4.jpg', filename: 'NO-LOVE-4.JPG' },
+            { src: 'portfolio/no-love-0.jpg', filename: 'NO-LOVE-0.JPG' },
+            { src: 'portfolio/no-love-2.jpg', filename: 'NO-LOVE-2.JPG' },
+            { src: 'portfolio/no-love-5.jpg', filename: 'NO-LOVE-5.JPG' }
+        ];
+        
+        let currentImageIndex = 0;
+
         // Image Modal Functions
-        function openImageModal(imageSrc, filename) {
+        function openImageModal(imageIndex) {
+            currentImageIndex = imageIndex;
             const modal = document.getElementById('imageModal');
             const modalImg = document.getElementById('modalImage');
             const modalFilename = document.getElementById('modalFilename');
+            const modalCounter = document.getElementById('modalCounter');
             
             modal.style.display = 'block';
-            modalImg.src = imageSrc;
-            modalFilename.textContent = filename;
+            modalImg.src = portfolioImages[imageIndex].src;
+            modalFilename.textContent = portfolioImages[imageIndex].filename;
+            modalCounter.textContent = `${imageIndex + 1} / ${portfolioImages.length}`;
             
             // Prevent body scroll when modal is open
             document.body.style.overflow = 'hidden';
@@ -1088,10 +1135,37 @@
             document.body.style.overflow = '';
         }
         
-        // Close modal on escape key
+        function nextImage() {
+            currentImageIndex = (currentImageIndex + 1) % portfolioImages.length;
+            updateModalImage();
+        }
+        
+        function prevImage() {
+            currentImageIndex = (currentImageIndex - 1 + portfolioImages.length) % portfolioImages.length;
+            updateModalImage();
+        }
+        
+        function updateModalImage() {
+            const modalImg = document.getElementById('modalImage');
+            const modalFilename = document.getElementById('modalFilename');
+            const modalCounter = document.getElementById('modalCounter');
+            
+            modalImg.src = portfolioImages[currentImageIndex].src;
+            modalFilename.textContent = portfolioImages[currentImageIndex].filename;
+            modalCounter.textContent = `${currentImageIndex + 1} / ${portfolioImages.length}`;
+        }
+        
+        // Close modal on escape key, navigate with arrow keys
         document.addEventListener('keydown', function(e) {
-            if (e.key === 'Escape') {
-                closeImageModal();
+            const modal = document.getElementById('imageModal');
+            if (modal.style.display === 'block') {
+                if (e.key === 'Escape') {
+                    closeImageModal();
+                } else if (e.key === 'ArrowRight') {
+                    nextImage();
+                } else if (e.key === 'ArrowLeft') {
+                    prevImage();
+                }
             }
         });
         
